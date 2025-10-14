@@ -2,8 +2,11 @@ name: CI/CD
 
 on:
   push:
-    branches: [ "**" ]   # запуск на будь-яку гілку
+    branches: [ "**" ]
   pull_request:
+
+env:
+  APP_ENV: test   # приклад env
 
 jobs:
   test:
@@ -41,3 +44,37 @@ jobs:
         with:
           name: junit-report
           path: report.xml
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python setup.py sdist || echo "No build step, just simulating"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-build
+          path: dist
+
+  deploy:
+    name: Deploy (staging)
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: staging
+      url: https://staging.example.com
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: app-build
+          path: ./artifact
+      - name: Simulate deploy
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: 
