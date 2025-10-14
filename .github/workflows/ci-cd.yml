@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  APP_ENV: test   # приклад env
+  APP_ENV: test
 
 jobs:
   test:
@@ -55,7 +55,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - run: python setup.py sdist || echo "No build step, just simulating"
+      - name: Build project
+        run: python setup.py sdist
       - uses: actions/upload-artifact@v4
         with:
           name: app-build
