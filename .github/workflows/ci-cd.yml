@@ -78,4 +78,7 @@ jobs:
       - name: Simulate deploy
         env:
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-        run: 
+        run: |
+          echo "Deploying with token: ${DEPLOY_TOKEN:0:4}****"
+          ls -la ./artifact
+          echo "Deploy success"
