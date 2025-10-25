@@ -1,1 +1,26 @@
+openapi: 3.0.0
+info:
+title: User API
+version: 1.0.0
+paths:
+/users:
+get:
+summary: Get all users
+responses:
+'200':
+description: Successful response
 
+post:
+summary: Create new user
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+properties:
+name:
+type: string
+responses:
+'201':
+description: User created
