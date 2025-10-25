@@ -2,9 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: [ "main" ]   # запускати при пуші у main
+    branches: [ "**" ]  
   pull_request:
-    branches: [ "main" ]   # і при PR у main
+    branches: [ "**" ]
 
 jobs:
   test:
@@ -17,7 +17,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"   # або твоя версія Python
+          python-version: "3.12" 
 
       - name: Install dependencies
         run: |
