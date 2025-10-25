@@ -1,5 +1,5 @@
 Це навчальний проєкт з практичного завдання №5 з предмету "Професійна практика програмної інженерії" написаний на Python, в застосунку Visual Studio Code
-![Tests](https://github.com/UnluckyCatMeow/PPPJ2/actions/workflows/ci-cd.yml/badge.svg?branch=feature/test-task)
+![Tests](https://github.com/UnluckyCatMeow/PPPI2/actions/workflows/ci-cd.yml/badge.svg?branch=feature/test-task)
 
 
 Опис програми :
