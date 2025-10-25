@@ -2,16 +2,27 @@ name: Tests
 
 on:
   push:
-    branches: [ "**" ]
+    branches: [ "main" ]   # запускати при пуші у main
   pull_request:
+    branches: [ "main" ]   # і при PR у main
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - run: pip install pytest
-      - run: pytest -v
+          python-version: "3.12"   # або твоя версія Python
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || true
+          pip install pytest
+
+      - name: Run tests
+        run: pytest -v
