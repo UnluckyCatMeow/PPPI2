@@ -1,5 +1,4 @@
 Це навчальний проєкт з практичного завдання №5 з предмету "Професійна практика програмної інженерії" написаний на Python, в застосунку Visual Studio Code
-![Tests](https://github.com/UnluckyCatMeow/PPPI2/actions/workflows/test.yaml/badge.svg)
 
 Опис програми :
 Програма запитує у користувача:
