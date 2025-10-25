@@ -1,5 +1,7 @@
 Це навчальний проєкт з практичного завдання №5 з предмету "Професійна практика програмної інженерії" написаний на Python, в застосунку Visual Studio Code
-![Tests](https://github.com/UnluckyCatMeow/PPPI2/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/UnluckyCatMeow/PPPI2/actions/workflows/test.yml/badge.svg?branch=main)
+
+
 Опис програми :
 Програма запитує у користувача:
 - скільки книг потрібно додати;
